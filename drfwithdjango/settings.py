@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'people',
     'artifacts',
+    'books',
+    'vehicles',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,8 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL = 'books/library'
+LOGIN_REDIRECT_URL = '/books/library/'
+LOGIN_URL = '/accounts/login/'
 
 WSGI_APPLICATION = 'drfwithdjango.wsgi.application'
 
