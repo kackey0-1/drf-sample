@@ -1,5 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
 
 from .models import Person
 from .serializers import PersonSerializer
@@ -12,7 +13,7 @@ def list_people(request):
     content = {
         "people": serializer.data,
     }
-    return Response(data=content)
+    return Response(data=content, status=status.HTTP_200_OK)
 
 
 
