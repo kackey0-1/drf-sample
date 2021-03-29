@@ -14,4 +14,10 @@ python manage.py migrate
 python manage.py runserver
 
 ```
+# Docs
+- app: settings files
+- api: api endpoints
+- artifacts: artifacts module
+- books: books module
+- people: people module
 

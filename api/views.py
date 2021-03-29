@@ -1,5 +1,6 @@
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
+from rest_framework import mixins, viewsets
 
 from artifacts.models import Artifact
 from people.models import Person
@@ -23,3 +24,23 @@ def listing(request):
         'vehicles': vehicles_serializer.data,
     }
     return Response(results)
+
+
+class DoctorsViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+
+    def list(self, request):
+        doctors = Person.objects.filter(title='Dr.')
+        results = {
+            'doctors': PersonSerializer(doctors, many=True).data,
+        }
+        return Response(results)
+
+
+class MassDeleteArtifactsViewSet(mixins.DestroyModelMixin, viewsets.GenericViewSet):
+
+    @action(detail=False, methods=['DELETE'])
+    def mass_delete(self, request, pk=None):
+        for artifact_id in request.POST['ids'].split(','):
+            Artifact.objects.get(id=artifact_id).delete()
+
+        return Response()
