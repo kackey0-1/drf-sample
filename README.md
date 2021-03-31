@@ -13,11 +13,14 @@ python manage.py migrate
 # Run Server
 python manage.py runserver
 
-# Test that the Celery worker is ready to receive tasks:
-celery -A app worker -l info
+# Test that the Celery worker is ready to receive tasks
+celery -A app worker --beat -l info
 
-# Test that the Celery task scheduler is ready for action:
+# Test that the Celery task scheduler is ready for action
 celery -A app beat -l info
+
+# Execute celery worker & beat
+celery -A app worker --beat --loglevel=info
 ```
 # Docs
 - app: settings files

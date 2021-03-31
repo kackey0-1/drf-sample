@@ -14,6 +14,7 @@ def send_feedback_email_task(email, message):
     return send_feedback_email(email, message)
 
 
+@shared_task(name="sample_task")
 def sample_task():
     # https://docs.celeryproject.org/en/stable/userguide/periodic-tasks.html#entries
     # @celery.app(run_every=(crontab(minute='*/15')), name="some_task", ignore_result=True)

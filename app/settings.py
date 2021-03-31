@@ -145,6 +145,10 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 # CELERY_TIMEZONE = 'Africa/Nairobi'
 
-
+# Emails
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+DEFAULT_FROM_EMAIL = 'Picha <picha@example.com>'
 
 
