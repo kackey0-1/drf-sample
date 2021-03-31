@@ -64,7 +64,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'drfwithdjango.urls'
 
 TEMPLATES = [
     {
@@ -85,7 +85,7 @@ TEMPLATES = [
 LOGIN_REDIRECT_URL = '/books/library/'
 LOGIN_URL = '/accounts/login/'
 
-WSGI_APPLICATION = 'app.wsgi.application'
+WSGI_APPLICATION = 'drfwithdjango.wsgi.application'
 
 
 # Database
