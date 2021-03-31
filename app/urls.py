@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import HealthCheckCustomView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('books.urls')),
     path('people/', include('people.urls')),
+    path('', include('artifacts.urls')),
+    path('vehicles/', include('vehicles.urls')),
+    path('health/', HealthCheckCustomView.as_view(), name='health_check_custom'),
 ]

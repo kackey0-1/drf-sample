@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'people',
+    'artifacts',
+    'books',
+    'vehicles',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -54,12 +58,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'drfwithdjango.urls'
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSED': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}
+
+ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +83,10 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'drfwithdjango.wsgi.application'
+LOGIN_REDIRECT_URL = '/books/library/'
+LOGIN_URL = '/accounts/login/'
+
+WSGI_APPLICATION = 'app.wsgi.application'
 
 
 # Database
