@@ -21,6 +21,9 @@ celery -A app beat -l info
 
 # Execute celery worker & beat
 celery -A app worker --beat --loglevel=info
+
+# Execute celery worker & beat at background
+celery -A app worker --beat -l INFO -D
 ```
 # Docs
 - app: settings files
