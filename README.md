@@ -24,6 +24,12 @@ celery -A app worker --beat --loglevel=info
 
 # Execute celery worker & beat at background
 celery -A app worker --beat -l INFO -D
+
+# Before Docker Containerization
+python manage.py check --deploy
+
+# Test
+python manage.py test
 ```
 # Docs
 - app: settings files
