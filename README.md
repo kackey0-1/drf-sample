@@ -24,17 +24,24 @@ celery -A app worker --beat --loglevel=info
 
 ## Dockerization
 ```bash
+# docker login
+docker login
 # docker build
-docker build -t drf-sample .
+docker build -t kackey01/drf-sample:1 .
+# docker build for aws EKS
+# https://aws.amazon.com/jp/blogs/containers/authenticating-with-docker-hub-for-aws-container-services/
+# docker build -t o2v4h3s9/django-app/
 
 # docker run only first time
 docker run -it -p 8000:8000 \
      -e DJANGO_SUPERUSER_USERNAME=admin \
      -e DJANGO_SUPERUSER_PASSWORD=sekret1 \
      -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
-     drf-sample
+     kackey01/drf-sample
 # docker run after first run
-docker run -it -p 8000:8000 drf-sample
+docker run -it -p 8000:8000 kackey01/drf-sample
+# docker push to registory
+docker image push 
 ```
 
 # Docs

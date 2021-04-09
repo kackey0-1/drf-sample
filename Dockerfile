@@ -12,6 +12,7 @@ RUN apt-get update
 RUN mkdir -p /opt/app/
 COPY . /opt/app/
 WORKDIR /opt/app
+RUN rm -rf /opt/app/venv
 RUN pip install -r requirements.txt --cache-dir /opt/app/.pip_cache
 RUN chown -R www-data:www-data /opt/app
 
