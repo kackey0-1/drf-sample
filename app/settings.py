@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'feedback',
     'vehicles',
     'api',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +148,15 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 # CELERY_TIMEZONE = 'Africa/Nairobi'
+CELERY_RESULT_BACKEND = 'django-db'
+# CELERY_RESULT_BACKEND = 'django-cache'
+# django setting.
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_cache_table',
+#     }
+# }
 
 # Emails
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
