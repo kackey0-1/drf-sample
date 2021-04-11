@@ -15,5 +15,6 @@ class ApiTest(TestCase):
     fixtures = ["receipts.json", ]
 
     def test_receipt(self):
-        expected = Decimal("37.55")
+        pass
+        # expected = Decimal("37.55")
         # self.assertEqual(expected, total)
